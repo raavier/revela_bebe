@@ -14,7 +14,9 @@ jornada com cliques simples até o grande botão **REVELAR**.
 
 2. **Música** — salve a música (Dreams – The Cranberries) como `musica.mp3`
    nesta pasta (ao lado do `index.html`). Ela começa a tocar no primeiro clique
-   em "Começar" e segue até o fim.
+   em "Começar" e segue até o fim — bem baixinha, de fundo, para as batidas de
+   coração aparecerem (ela fica quase muda na cena do coração e volta um pouco
+   na revelação).
 
 3. **Teste uma vez sem a Stefânia por perto** 😄 — abra o `index.html` no Chrome
    e faça a jornada completa.
@@ -35,7 +37,7 @@ jornada com cliques simples até o grande botão **REVELAR**.
 | ✨ Início | "Chegou a hora…" — o clique em Começar libera a música |
 | 👨‍👩‍👦 Abertura | A família Ravier e o segredo do Teodoro |
 | 🗳️ Enquete | A enquete do WhatsApp ganha vida: Benício 1 × Celina 5 |
-| ⚽🧁 Dois caminhos | Benício jogando bola × Celina fazendo cupcake — ela espia os dois |
+| ⚽🧁 Dois caminhos | A mamãe leva o Teodoro pela mão até cada lado: um nenem de azul brincando de bola, ou uma nenem de rosa confeitando cupcake |
 | 💜 Coração | 5 toques enchem o coração de amor, com som de batidas |
 | 🔘 O grande botão | REVELAR → contagem 5…4…3…2…1 alternando rosa e azul |
 | 🎀 Revelação | Confete rosa, "É UMA MENINA!", o nome Celina e a foto final |
