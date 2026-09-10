@@ -1,6 +1,6 @@
 # 💗 Revelação — Celina está chegando!
 
-Uma experiência interativa de ~2 minutos para o chá revelação da família Ravier,
+Uma experiência interativa de ~2 minutos para o chá revelação da família Pereira de Assis,
 feita para ser compartilhada numa chamada do Google Meet. A Stefânia conduz a
 jornada com cliques simples até o grande botão **REVELAR**.
 
@@ -35,8 +35,8 @@ jornada com cliques simples até o grande botão **REVELAR**.
 | Cena | O que acontece |
 |---|---|
 | ✨ Início | "Chegou a hora…" — o clique em Começar libera a música |
-| 👨‍👩‍👦 Abertura | A família Ravier e o segredo do Teodoro |
-| 🗳️ Enquete | A enquete do WhatsApp ganha vida: Benício 1 × Celina 5 |
+| 👨‍👩‍👦 Abertura | A família Pereira de Assis e o segredo do Teodoro |
+| 🗳️ Enquete | A enquete do WhatsApp ganha vida: Benício 2 × Celina 30, com direito a estouro de confete |
 | ⚽🧁 Dois caminhos | A mamãe leva o Teodoro pela mão até cada lado: um nenem de azul brincando de bola, ou uma nenem de rosa confeitando cupcake |
 | 💜 Coração | 5 toques enchem o coração de amor, com som de batidas |
 | 🔘 O grande botão | REVELAR → contagem 5…4…3…2…1 alternando rosa e azul |
