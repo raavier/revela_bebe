@@ -12,6 +12,10 @@ Funciona no computador e no celular (em pé, sem precisar virar a tela).
 Quem abrir toca em "Começar" e faz a jornada inteira — a música toca a partir
 desse primeiro toque.
 
+O site é servido pelo GitHub Pages a partir do branch `gh-pages`. Para publicar
+uma mudança, mande o commit também para lá:
+`git push origin main:gh-pages` (o site atualiza em ~1 minuto).
+
 ## Antes do grande dia — 3 passos
 
 1. **Fotos** — coloque na pasta `fotos/`:
