@@ -256,9 +256,11 @@
     padding: 14px 30px; box-shadow: var(--sombra);
     font-size: clamp(15px, 1.9vw, 20px); font-weight: 600; white-space: nowrap;
   }
-  #btn-caminhos {
-    position: absolute; bottom: 96px; left: 50%; transform: translateX(-50%); z-index: 5; margin: 0;
+  #btn-caminhos-wrap {
+    position: absolute; bottom: 96px; left: 0; right: 0; z-index: 5;
+    display: flex; justify-content: center; pointer-events: none;
   }
+  #btn-caminhos { margin: 0; pointer-events: auto; }
 
   /* ========== cena: coração ========== */
   #coracao-grande {
@@ -365,9 +367,26 @@
 
   #flash { position: fixed; inset: 0; z-index: 30; pointer-events: none; opacity: 0; background: #fff; }
 
+  /* ===== celular em pé: os futuros ficam empilhados e o duo caminha na vertical ===== */
   @media (max-width: 640px) {
     .split { flex-direction: column; }
-    #pergunta-teodoro { white-space: normal; width: 86vw; text-align: center; }
+    .lado:hover { flex: 1; } /* sem efeito de crescer no toque */
+    #pergunta-teodoro { white-space: normal; width: 88vw; text-align: center; bottom: 12px; padding: 10px 18px; font-size: 14px; }
+    .painel-topo { padding-top: 14px; }
+    .painel-topo h2 { font-size: 15px; padding: 8px 20px; }
+    .moldura img, .moldura .foto-fallback { width: 74vw; height: 55vw; }
+    .palco { height: clamp(110px, 32vw, 160px); }
+    .cena-bola { width: clamp(130px, 40vw, 190px); }
+    .cena-menina { width: clamp(95px, 29vw, 140px); }
+    .cupcake-svg { width: clamp(74px, 23vw, 105px); }
+    .lado .toque { bottom: 12px; }
+    /* o duo começa na divisa e viaja para cima (Benício) ou para baixo (Celina),
+       parando ao ladinho do bebê para observar */
+    #duo { bottom: auto; top: calc(50% - 78px); transition: top 2.4s ease-in-out, left 2.4s ease-in-out; }
+    #duo svg { width: clamp(72px, 19vw, 96px); }
+    /* o botão nasce na divisa entre os dois mundos */
+    #btn-caminhos-wrap { bottom: auto; top: 50%; transform: translateY(-50%); }
+    #trilha { top: 12px; }
   }
 </style>
 </head>
@@ -415,8 +434,8 @@
     </div>
   </div>
   <p class="comentario-enquete" id="comentario-enquete">
-    Goleada: <b style="color: var(--rosa-forte);">30 a 2</b>! Tios, tias, primos, primas e avós apostam em <b style="color: var(--rosa-forte);">menina</b>…<br>
-    Só um tio — e a própria mamãe! — acham que é <b style="color: var(--azul-forte);">menino</b>. 👀
+    Goleada: todo mundo achando que é <b style="color: var(--rosa-forte);">Celina</b> — tios, tias, primos e primas…<br>
+    Só um tio, uma prima — e a própria mamãe! — acham que é <b style="color: var(--azul-forte);">menino</b>. 👀
   </p>
   <button class="botao oculto" id="btn-enquete" onclick="irPara('caminhos')">Será? 🤔</button>
 </section>
@@ -571,7 +590,9 @@
       <circle cx="76.5" cy="100" r="3.8" fill="#dca87f"/>
     </svg>
   </div>
-  <button class="botao oculto" id="btn-caminhos" onclick="irPara('coracao')">Quero descobrir! 💫</button>
+  <div id="btn-caminhos-wrap">
+    <button class="botao oculto" id="btn-caminhos" onclick="irPara('coracao')">Quero descobrir! 💫</button>
+  </div>
   <div id="pergunta-teodoro">🧒 "Vou ganhar um irmão… ou uma irmã?" — Teodoro</div>
 </section>
 
@@ -787,11 +808,11 @@
     }
   }
 
-  /* --- enquete: menino ganha 2 votinhos, menina dispara até 30 e a barra estoura --- */
-  const VOTOS_MENINA = 30;
+  /* --- enquete: menino ganha 3 votinhos, menina dispara até 100 e a barra estoura --- */
+  const VOTOS_MENINA = 100;
   function animarEnquete() {
     document.getElementById('barra-benicio').style.width = '10%';
-    contar('votos-benicio', 2, 1800);
+    contar('votos-benicio', 3, 2000);
     const votos = document.getElementById('votos-celina');
     const barra = document.getElementById('barra-celina');
     let v = 0;
@@ -800,8 +821,8 @@
       votos.textContent = v;
       barra.style.width = Math.min(100, v / VOTOS_MENINA * 100) + '%';
       if (v < VOTOS_MENINA) {
-        // começa devagar e acelera: o placar dispara
-        setTimeout(proximoVoto, Math.max(45, 280 - v * 9));
+        // começa devagar e acelera até virar uma enxurrada de votos
+        setTimeout(proximoVoto, Math.max(16, 300 - v * 13));
       } else {
         setTimeout(estourarEnquete, 350);
       }
@@ -839,7 +860,14 @@
     if (duoAndando || visitados[cor]) return;
     duoAndando = true;
     duo.classList.add('andando');
-    duo.style.left = cor === 'azul' ? '25%' : '75%';
+    if (matchMedia('(max-width: 640px)').matches) {
+      // celular: os futuros ficam empilhados, então o duo sobe ou desce
+      // e para um pouco à esquerda, ao lado do bebê
+      duo.style.top = cor === 'azul' ? '11%' : '60%';
+      duo.style.left = '22%';
+    } else {
+      duo.style.left = cor === 'azul' ? '25%' : '75%';
+    }
     setTimeout(() => {
       duo.classList.remove('andando');
       duoAndando = false;
